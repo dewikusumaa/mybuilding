@@ -1,0 +1,56 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<h1 class="h-3 mb-2 font-weight-bold text-gray-800">Data Product Keluar</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/product_keluar/add/" class="btn btn-primary btn-sm mr-3" role="button" data-bs-toggle="button">Tambah</a>
+            <a href="" class="btn btn-primary btn-sm" role="button" data-bs-toggle="button">Cetak</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Category</th>
+                        <th>Nama Bahan</th>
+                        <th>Total</th>
+                        <th>Satuan</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for product_keluar in product_keluars %}
+                    <tr>
+                        <td>{{product_keluar.updated}}</td>
+                        <td>{{product_keluar.category}}</td>
+                        <td>{{product_keluar.product}}</td>
+                        <td>{{product_keluar.total}}</td>
+                        <td>{{product_keluar.satuan}}</td>
+                        <td>
+                            <a method="post" href="/product_keluar/delete/{{product_keluar.id}}/" class="btn btn-danger btn-sm" type="submit">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+{% endblock content %}

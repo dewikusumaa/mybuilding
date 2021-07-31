@@ -1,0 +1,30 @@
+{% extends "home.html" %}
+{% load static %}
+
+{% block title %}
+	{{ product.name }}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<img class="rounded mx-auto d-block mr-3" height="350px:" width="800px:" src="{% if product.image %}{{ product.image.url }}{% else %}
+			{% static 'building/img/no_image.png' %}{% endif %}">
+			<br>
+			<h1 class="m-0 font-weight-bold text-gray-800">{{ product.name }}</h1>
+			<br>
+			<p class="price">Rp. {{ product.price }}</p>
+
+			{{ product.description|linebreaks }}
+
+			<form action="{% url 'cart:cart_add' product.id %}" method="post">
+				{{ cart_product_form }}
+				{% csrf_token %}
+				<!-- <input type="submit" value="Add to cart"> -->
+				<button type="submit" class="btn btn-primary btn-sm">Add to cart</button>
+			</form>		
+		</div>
+	</div>
+</div>
+{% endblock %}

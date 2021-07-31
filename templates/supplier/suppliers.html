@@ -1,0 +1,54 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<h1 class="h-3 mb-2 font-weight-bold text-gray-800">Data Supplier</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="/supplier/create/" class="btn btn-primary btn-sm mr-3" role="button" data-bs-toggle="button">Tambah</a>
+            <a href="" class="btn btn-primary btn-sm" role="button" data-bs-toggle="button">Cetak</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Nama Supplier</th>
+                        <th>No Handphone</th>
+                        <th>Alamat</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for supplier in suppliers %}
+                    <tr>
+                        <td>{{supplier.updated}}</td>
+                        <td>{{supplier.name}}</td>
+                        <td>{{supplier.no_hape}}</td>
+                        <td>{{supplier.address}}</td>
+                        <td>
+                            <a method="post" href="/supplier/delete/{{supplier.id}}/" class="btn btn-danger btn-sm" type="submit">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+{% endblock content %}

@@ -1,0 +1,119 @@
+{% load static %}
+
+<!-- Sidebar -->
+<ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+    <!-- Sidebar - Brand -->
+    <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{% url 'building:product_list' %}">
+        <div class="sidebar-brand-text mx-3">TB. Taufik Hidayat</div>
+    </a>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider my-0">
+
+    <!-- Nav Item - Dashboard -->
+    <li class="nav-item active">
+        <a class="nav-link" href="/home">
+            <i class="fa fa-home"></i>
+            <span>Dashboard</span></a>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Nav Item - Category Collapse Menu -->
+    <!-- <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fas fa-list"></i>
+            <span>Categories</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/category">Add Category</a>
+                <a class="collapse-item" href="/categories">List Category</a>
+            </div>
+        </div>
+    </li> -->
+
+    <!-- Nav Item - Categories -->
+    <li class="nav-item">
+        <a class="nav-link" href="/categories">
+            <i class="fas fa-list"></i>
+            <span>Categories</span></a>
+    </li>
+
+    <!-- Nav Item - Products Collapse Menu -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
+            aria-expanded="true" aria-controls="collapseUtilities">
+            <i class="fa fa-folder"></i>
+            <span>Data</span>
+        </a>
+        <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
+            data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <a class="collapse-item" href="/products">Master Bahan</a>
+                <a class="collapse-item" href="">Master User</a>
+                <a class="collapse-item" href="/product_masuk/list/">Master Bahan Masuk</a>
+                <a class="collapse-item" href="/product_keluar/bahan/">Master Bahan Keluar</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Nav Item - Cart -->
+    <li class="nav-item">
+        <a class="nav-link" href="/supplier/listSupplier/">
+            <i class="fas fa-industry"></i>
+            <span>Supplier</span></a>
+    </li>
+
+    <!-- Nav Item - Cart -->
+    <li class="nav-item">
+    <a class="nav-link" href="/cart">
+        <i class="fas fa-luggage-cart"></i>
+        <span>Cart</span></a>
+    </li>
+
+    <!-- Nav Item - Orders -->
+    <li class="nav-item">
+        <a class="nav-link" href="{% url 'orders:order_create' %}">
+            <i class="fa fa-shopping-bag"></i>
+            <span>Orders</span></a>
+    </li>
+
+    <!-- Nav Item - Report -->
+    <li class="nav-item">
+        <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
+            aria-expanded="true" aria-controls="collapseTwo">
+            <i class="fa fa-book"></i>
+            <span>Report</span>
+        </a>
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+            <div class="bg-white py-2 collapse-inner rounded">
+                <!-- <a class="collapse-item" href="">Pembelian</a> -->
+                <a class="collapse-item" href="/orders/order/">Penjualan</a>
+            </div>
+        </div>
+    </li>
+
+    <!-- Divider -->
+    <hr class="sidebar-divider">
+
+    <!-- Heading -->
+    <div class="sidebar-heading"></div>
+
+    <!-- Sidebar Toggler (Sidebar) -->
+    <div class="text-center d-none d-md-inline">
+        <button class="rounded-circle border-0" id="sidebarToggle"></button>
+    </div>
+
+    <!-- Sidebar Message -->
+    <!-- <div class="sidebar-card d-none d-lg-flex">
+        <img class="sidebar-card-illustration mb-2" src="img/undraw_rocket.svg" alt="...">
+        <p class="text-center mb-2"><strong>SB Admin Pro</strong> is packed with premium features, components, and more!</p>
+        <a class="btn btn-success btn-sm" href="https://startbootstrap.com/theme/sb-admin-pro">Upgrade to Pro!</a>
+    </div> -->
+
+</ul>
+<!-- End of Sidebar -->

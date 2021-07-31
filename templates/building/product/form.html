@@ -1,0 +1,78 @@
+{% extends "home.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <h1 class="h3 mb-2 font-weight-bold text-primary">Tambah Data Bahan Bangunan</h1>
+    <div class="card shadow mb-4">
+        <div class="card-header py-3">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                {{ form.non_field_errors }}
+
+                {% for hidden in form.hidden_fields %}
+                    {{ hidden_field.errors }}
+                    {{ hidden_field }}
+                {% endfor %}
+
+                {% for field in form.visible_fields %}
+                <div class="form-group mb-4">
+                    <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+                    {% render_field field class="form-control" %}
+                    {% for error in field.errors %}
+                        <span class="help-block">{{ error }}</span>
+                    {% endfor %}
+                </div>
+                {% endfor %}
+
+                <div class="form-group">
+                    <button type="submit" class="btn btn-outline-primary">Simpan</button>
+                    <a href="/products" class="btn btn-outline-secondary">Cancel</a>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+{% endblock %}
+
+	<!-- <div class="i-am-centered">
+        <form method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <div class="form-group">
+            	<label class="mb-3 ml-2">Category</label>
+            	{{ form.category }}
+            </div>
+            <div class="form-group">
+                <label class="mb-3 ml-2">Name</label>
+                {{ form.name }}
+            </div>
+            <div class="form-group">
+                <label class="mb-3 ml-2">Slug</label>
+                {{ form.slug }}
+            </div>
+            <div class="form-group">
+                <label class="mb-3 ml-2">Image</label>
+                {{ form.image }}
+            </div>
+            <div class="form-group">
+                <label class="mb-3 ml-2">Description</label>
+                {{ form.description }}
+            </div>
+            <div class="form-group">
+                <label class="mb-3 ml-2">Price</label>
+                {{ form.price }}
+            </div>
+            <div class="form-group">
+                <label class="mb-3 ml-2">Stock Material</label>
+                {{ form.stock_material }}
+            </div>
+            <div class="form-group">
+            	<label class="mb-3 ml-2">Availabel</label>
+            	{{ form.availabel }}
+            </div>
+            <button type="submit" class="btn btn-primary ml-2">Submit</button>
+        </form>
+    </div> -->
+

@@ -1,0 +1,51 @@
+{% extends "home.html" %}
+{% load widget_tweaks %}
+{% load static %}
+
+{% block title %}
+	Checkout
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<h1 class="h-3 mb-2 text-gray-800">CHECKOUT</h1>
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h3 class="m-0 font-weight-bold text-primary">Pesanan Anda</h3>
+			<ul>
+				{% for item in cart %}
+				<li>
+					{{ item.quantity }} x {{ item.product.name }}
+					<span>Rp. {{ item.total_price }}</span>
+				</li>
+				{% endfor %}
+			</ul>
+			<p class="m-0 font-weight-bold text-primary">Total : Rp. {{ cart.get_total_price }}</p>
+			<br>
+			<form method="post">
+				{% csrf_token %}
+
+				{% for hidden in form.hidden_fields %}
+				{{ hidden }}
+				{% endfor %}
+
+				{% for field in form.visible_fields %}
+				<div class="form-group mb-4">
+					<label for="{{ field.id_for_label }}">{{ field.label }}</label>
+					{% render_field field class="form-control" %}
+					{% for error in field.errors %}
+						<span class="help-block">{{ error }}</span>
+					{% endfor %}
+				</div>
+				{% endfor %}
+
+				<div class="form-group">
+					<button type="submit" class="btn btn-success btn-sm">Memesan</button>
+					<!-- <a href="" class="btn btn-success btn-sm" role="button" data-bs-toggle="button">Memesan</a> -->
+					<a href="/cart/" class="btn btn-secondary btn-sm mr-3" role="button" data-bs-toggle="button">Cancel</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+{% endblock %}

@@ -1,0 +1,54 @@
+{% extends 'home.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Begin Page Content -->
+<div class="container-fluid">
+
+<!-- Page Heading -->
+<h1 class="h-3 mb-2 font-weight-bold text-gray-800">Laporan Penjualan</h1>
+
+<!-- DataTales Example -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <a href="" class="btn btn-primary btn-sm" role="button" data-bs-toggle="button">Cetak Data</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Tanggal</th>
+                        <th>Customer</th>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for order in orders %}
+                    <tr>
+                        <td>{{order.order.updated}}</td>
+                        <td>{{order.order.name}}</td>
+                        <td>{{order.product.name}}</td>
+                        <td>{{order.quantity}}</td>
+                        <td>
+                            <a href=""><i class="fa fa-edit"></i></a>
+                            <a href=""><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+</div>
+<!-- /.container-fluid -->
+
+</div>
+<!-- End of Main Content -->
+{% endblock content %}

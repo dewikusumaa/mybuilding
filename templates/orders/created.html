@@ -1,0 +1,16 @@
+{% extends "home.html" %}
+
+{% block title %}
+	Terimakasih
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+	<div class="card shadow mb-4">
+		<div class="card-header py-3">
+			<h1 class="h-3 mb-2 text-gray-800">Terimakasih</h1>
+			<p class="m-0 font-weight-bold text-primary">Pesanan Anda telah berhasil. Nomer pesanan anda adalah <strong>{{ order.id }}</strong>.</p>
+		</div>
+	</div>
+</div>
+{% endblock %}
